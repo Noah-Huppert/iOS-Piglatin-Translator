@@ -18,35 +18,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2e0-hr-FQo">
-                                <rect key="frame" x="180" y="20" width="240" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ3-U4-Nn8">
+                                <rect key="frame" x="20" y="0.0" width="560" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gtd-Tt-n9E"/>
+                                    <constraint firstAttribute="height" constant="40" id="G1I-mh-wnq"/>
                                 </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O4M-KV-RaH" userLabel="Text View - Raw">
-                                <rect key="frame" x="180" y="68" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hKF-cb-g8h" userLabel="Text View - Translated">
-                                <rect key="frame" x="180" y="361" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4dM-26-dA0">
+                                <rect key="frame" x="20" y="40" width="560" height="516"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-Mi-yRB">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="258"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YaJ-K6-Yax">
+                                        <rect key="frame" x="0.0" y="258" width="560" height="258"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YaJ-K6-Yax" firstAttribute="height" secondItem="aH7-Mi-yRB" secondAttribute="height" id="nGA-XI-KiS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hKF-cb-g8h" firstAttribute="height" secondItem="O4M-KV-RaH" secondAttribute="height" id="IgS-gC-AQ0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2e0-hr-FQo" secondAttribute="trailing" id="LTg-od-TL3"/>
-                            <constraint firstItem="2e0-hr-FQo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="M4X-ED-bKb"/>
-                            <constraint firstItem="O4M-KV-RaH" firstAttribute="top" secondItem="2e0-hr-FQo" secondAttribute="bottom" id="X3b-oq-b05"/>
-                            <constraint firstItem="2e0-hr-FQo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xux-vD-312"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4dM-26-dA0" secondAttribute="bottom" id="9nS-Ez-diq"/>
+                            <constraint firstItem="4dM-26-dA0" firstAttribute="top" secondItem="wQ3-U4-Nn8" secondAttribute="bottom" id="IEg-u5-iWC"/>
+                            <constraint firstItem="4dM-26-dA0" firstAttribute="top" secondItem="wQ3-U4-Nn8" secondAttribute="bottom" id="NX3-gf-Alw"/>
+                            <constraint firstItem="wQ3-U4-Nn8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tt6-4o-jnm"/>
+                            <constraint firstItem="4dM-26-dA0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Zpr-Cy-hHO"/>
+                            <constraint firstItem="wQ3-U4-Nn8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="adg-6f-MJB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wQ3-U4-Nn8" secondAttribute="trailing" id="qTi-90-Ugd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4dM-26-dA0" secondAttribute="trailing" id="u11-c3-W5a"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
