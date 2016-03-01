@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
+    // MARK: Outlets
+    @IBOutlet weak var translatedTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: User functions
+    func translateToPiglatin(text: String) -> String {
+        return text;// TODO
+    }
 
-
+    // MARK: UITextViewDelegate
+    func textViewDidChange(textView: UITextView) {
+        translatedTextView.text = translateToPiglatin(textView.text)
+    }
 }
 
