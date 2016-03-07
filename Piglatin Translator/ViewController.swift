@@ -9,8 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
+    let partsExp = try! NSRegularExpression(pattern: "(\\w*|.?)", options: .CaseInsensitive)
+    
+    /*
+    let capitalExp = try! NSRegularExpression(pattern: "[A-Z]", options: [])
     let wordExp = try! NSRegularExpression(pattern: "([^\\s]*) ?", options: [])
     let piglatinExp = try! NSRegularExpression(pattern: "([aieou]*)([^aieou]*)(\\w*)", options: .CaseInsensitive)
+    */
     
     // MARK: Outlets
     @IBOutlet weak var translatedTextView: UITextView!
@@ -30,8 +35,21 @@ class ViewController: UIViewController, UITextViewDelegate {
         return (text as NSString).substringWithRange(match.rangeAtIndex(index))
     }
     
+    func matchRegex(text: String, regex: NSRegularExpression) -> [String] {
+        let matches = regex.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))
+        var results: [String] = []
+        
+        for var i = 0; i < matches.count; i++ {
+            results.append(getRegexGroup(text, match: matches[i], index: 1))
+        }
+        
+        return results
+    }
+    
     // MARK: User functions
     func translateToPiglatin(text: String) -> String {
+        let parts = matchRegex(text, regex: partsExp)
+        /*
         let wordMatches = wordExp.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))
         var words: [String] = []
         
@@ -41,17 +59,37 @@ class ViewController: UIViewController, UITextViewDelegate {
             }
         }
         
+        var result = ""
+        
         for word in words {
+            let capitalMatches = capitalExp.matchesInString(word, options: [], range: NSRange(location: 0, length: word.characters.count))
             let partOneMatches = piglatinExp.matchesInString(word, options: [], range: NSRange(location: 0, length: word.characters.count))
+            
+            var capital = false
+            
+            if capitalMatches.count > 0 {
+                capital = true
+            }
             
             let one = getRegexGroup(word, match: partOneMatches[0], index: 1)
             let two = getRegexGroup(word, match: partOneMatches[0], index: 2)
             let three = getRegexGroup(word, match: partOneMatches[0], index: 3)
             
-            print("\(three) + \(two) + \(one)ay")
+            var piglatinWord = (three + two + one + "ay").lowercaseString
+            
+            if capital {
+                piglatinWord.replaceRange(piglatinWord.startIndex...piglatinWord.startIndex, with: String(piglatinWord[piglatinWord.startIndex]).capitalizedString)
+            }
+            
+            result += " \(piglatinWord)"
         }
         
-        return text;// TODO
+        return result;
+        */
+        
+        print(parts)
+        
+        return "\(parts)"
     }
 
     // MARK: UITextViewDelegate
