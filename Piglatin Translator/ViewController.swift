@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
-    let partsExp = try! NSRegularExpression(pattern: "(\\w*|.?)", options: .CaseInsensitive)
-    
+    let partsExp = try! NSRegularExpression(pattern: "(\\w+|[^\\w])", options: .CaseInsensitive)
+    let translatableExp = try! NSRegularExpression(pattern: "(\\w+)", options: [])
     /*
     let capitalExp = try! NSRegularExpression(pattern: "[A-Z]", options: [])
     let wordExp = try! NSRegularExpression(pattern: "([^\\s]*) ?", options: [])
@@ -49,6 +49,20 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: User functions
     func translateToPiglatin(text: String) -> String {
         let parts = matchRegex(text, regex: partsExp)
+        var result: [String] = []
+        
+        for var i = 0; i < parts.count; i++ {
+            var part = parts[i]
+            
+            let translatableMatches = matchRegex(part, regex: translatableExp)
+            
+            if translatableMatches.count > 0 {
+                // Translate
+            }
+            
+            result.append(part)
+        }
+        
         /*
         let wordMatches = wordExp.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))
         var words: [String] = []
@@ -86,8 +100,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         return result;
         */
-        
-        print(parts)
         
         return "\(parts)"
     }
