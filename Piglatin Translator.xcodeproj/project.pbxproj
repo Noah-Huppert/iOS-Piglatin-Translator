@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1933D091C91ED2100BA6F99 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1933D081C91ED2100BA6F99 /* Translator.swift */; };
+		C1933D0C1C91ED6600BA6F99 /* PiglatinTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1933D0B1C91ED6600BA6F99 /* PiglatinTranslator.swift */; };
 		C1BFE3751C80D54000F13CE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BFE3741C80D54000F13CE5 /* AppDelegate.swift */; };
 		C1BFE3771C80D54000F13CE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BFE3761C80D54000F13CE5 /* ViewController.swift */; };
 		C1BFE37A1C80D54000F13CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BFE3781C80D54000F13CE5 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1933D081C91ED2100BA6F99 /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		C1933D0B1C91ED6600BA6F99 /* PiglatinTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiglatinTranslator.swift; sourceTree = "<group>"; };
 		C1BFE3711C80D54000F13CE5 /* Piglatin Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Piglatin Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BFE3741C80D54000F13CE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1BFE3761C80D54000F13CE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1933D0A1C91ED5800BA6F99 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1933D081C91ED2100BA6F99 /* Translator.swift */,
+				C1933D0B1C91ED6600BA6F99 /* PiglatinTranslator.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C1BFE3681C80D54000F13CE5 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +76,7 @@
 				C1BFE3801C80D54000F13CE5 /* LaunchScreen.storyboard */,
 				C1BFE3831C80D54000F13CE5 /* Info.plist */,
 				C1BFE37B1C80D54000F13CE5 /* Piglatin_Translator.xcdatamodeld */,
+				C1933D0A1C91ED5800BA6F99 /* Models */,
 			);
 			path = "Piglatin Translator";
 			sourceTree = "<group>";
@@ -139,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BFE3771C80D54000F13CE5 /* ViewController.swift in Sources */,
+				C1933D091C91ED2100BA6F99 /* Translator.swift in Sources */,
+				C1933D0C1C91ED6600BA6F99 /* PiglatinTranslator.swift in Sources */,
 				C1BFE3751C80D54000F13CE5 /* AppDelegate.swift in Sources */,
 				C1BFE37D1C80D54000F13CE5 /* Piglatin_Translator.xcdatamodeld in Sources */,
 			);
@@ -290,6 +306,7 @@
 				C1BFE3881C80D54000F13CE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

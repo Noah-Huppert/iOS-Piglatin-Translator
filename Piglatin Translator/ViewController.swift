@@ -9,13 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
+    // MARK: Regular Expressions
     let partsExp = try! NSRegularExpression(pattern: "(\\w+|[^\\w])", options: .CaseInsensitive)
     let translatableExp = try! NSRegularExpression(pattern: "(\\w+)", options: [])
+    let capitalExp = try! NSRegularExpression(pattern: "[A-Z]", options: [])
     /*
     let capitalExp = try! NSRegularExpression(pattern: "[A-Z]", options: [])
     let wordExp = try! NSRegularExpression(pattern: "([^\\s]*) ?", options: [])
     let piglatinExp = try! NSRegularExpression(pattern: "([aieou]*)([^aieou]*)(\\w*)", options: .CaseInsensitive)
     */
+    
+    // MARK: Translators
+    let translators: [Translator] = [PiglatinTranslator()]
+    var current_translator_index: Int = 0
     
     // MARK: Outlets
     @IBOutlet weak var translatedTextView: UITextView!
@@ -30,7 +36,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Helpers
+    // MARK: Translator Helpers
+    func getCurrentTranslator() -> Translator {
+        return translators[current_translator_index]
+    }
+    
+    // MARK: Regex Helpers
     func getRegexGroup(text: String, match: NSTextCheckingResult, index: Int) -> String {
         return (text as NSString).substringWithRange(match.rangeAtIndex(index))
     }
@@ -57,7 +68,19 @@ class ViewController: UIViewController, UITextViewDelegate {
             let translatableMatches = matchRegex(part, regex: translatableExp)
             
             if translatableMatches.count > 0 {
-                // Translate
+                var capitalIndexes: [Int] = []
+                
+                let matches = capitalExp.matchesInString(part, options: [], range: NSRange(location: 0, length: part.characters.count))
+                for match in matches {
+                    capitalIndexes.append(match.range.location)
+                }
+            
+                part = getCurrentTranslator().translate(part)
+                
+                for index in capitalIndexes {
+                    part.replaceRange(NSRange(location: index, length: 1), with: String(part[index]).capitalizedString)// TODO Make range correctly, not NSRange, Range
+                    //piglatinWord.replaceRange(piglatinWord.startIndex...piglatinWord.startIndex, with: String(piglatinWord[piglatinWord.startIndex]).capitalizedString)
+                }
             }
             
             result.append(part)
