@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.swift
 //  Piglatin Translator
 //
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 part = getCurrentTranslator().translate(part)
                 
                 for index in capitalIndexes {
-                    part.replaceRange(NSRange(location: index, length: 1), with: String(part[index]).capitalizedString)// TODO Make range correctly, not NSRange, Range
+                    part.replaceRange(part.startIndex.advancedBy(index)...part.startIndex.advancedBy(index), with: String(part.characters[index]).capitalizedString)
                     //piglatinWord.replaceRange(piglatinWord.startIndex...piglatinWord.startIndex, with: String(piglatinWord[piglatinWord.startIndex]).capitalizedString)
                 }
             }
