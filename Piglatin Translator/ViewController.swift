@@ -41,31 +41,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         return translators[current_translator_index]
     }
     
-    // MARK: Regex Helpers
-    func getRegexGroup(text: String, match: NSTextCheckingResult, index: Int) -> String {
-        return (text as NSString).substringWithRange(match.rangeAtIndex(index))
-    }
-    
-    func matchRegex(text: String, regex: NSRegularExpression) -> [String] {
-        let matches = regex.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))
-        var results: [String] = []
-        
-        for var i = 0; i < matches.count; i++ {
-            results.append(getRegexGroup(text, match: matches[i], index: 1))
-        }
-        
-        return results
-    }
-    
     // MARK: User functions
     func translateToPiglatin(text: String) -> String {
-        let parts = matchRegex(text, regex: partsExp)
+        let parts = RegexHelper.matchRegex(text, regex: partsExp)
         var result: [String] = []
         
         for var i = 0; i < parts.count; i++ {
             var part = parts[i]
             
-            let translatableMatches = matchRegex(part, regex: translatableExp)
+            let translatableMatches = RegexHelper.matchRegex(part, regex: translatableExp)
             
             if translatableMatches.count > 0 {
                 var capitalIndexes: [Int] = []
@@ -76,10 +60,11 @@ class ViewController: UIViewController, UITextViewDelegate {
                 }
             
                 part = getCurrentTranslator().translate(part)
+                part = part.lowercaseString
                 
                 for index in capitalIndexes {
-                    part.replaceRange(part.startIndex.advancedBy(index)...part.startIndex.advancedBy(index), with: String(part.characters[index]).capitalizedString)
-                    //piglatinWord.replaceRange(piglatinWord.startIndex...piglatinWord.startIndex, with: String(piglatinWord[piglatinWord.startIndex]).capitalizedString)
+                    let stringIndex = part.startIndex.advancedBy(index)
+                    part.replaceRange(stringIndex...stringIndex, with: String(part[stringIndex]).capitalizedString)
                 }
             }
             
@@ -124,7 +109,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         return result;
         */
         
-        return "\(parts)"
+        return result.joinWithSeparator("")
     }
 
     // MARK: UITextViewDelegate
