@@ -35,12 +35,14 @@
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YaJ-K6-Yax" userLabel="Text View - Translated">
                                         <rect key="frame" x="0.0" y="268" width="560" height="268"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.92144097222222221" green="0.92144097222222221" blue="0.92144097222222221" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="YaJ-K6-Yax" firstAttribute="leading" secondItem="4dM-26-dA0" secondAttribute="leading" id="9dH-yL-TCH"/>
+                                    <constraint firstAttribute="trailing" secondItem="YaJ-K6-Yax" secondAttribute="trailing" id="hsq-Vf-nAD"/>
                                     <constraint firstItem="YaJ-K6-Yax" firstAttribute="height" secondItem="aH7-Mi-yRB" secondAttribute="height" id="nGA-XI-KiS"/>
                                 </constraints>
                             </stackView>

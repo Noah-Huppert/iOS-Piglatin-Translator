@@ -71,44 +71,6 @@ class ViewController: UIViewController, UITextViewDelegate {
             result.append(part)
         }
         
-        /*
-        let wordMatches = wordExp.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))
-        var words: [String] = []
-        
-        for match in wordMatches {
-            if match.rangeAtIndex(1).length != 0 {
-                words.append(getRegexGroup(text, match: match, index: 1))
-            }
-        }
-        
-        var result = ""
-        
-        for word in words {
-            let capitalMatches = capitalExp.matchesInString(word, options: [], range: NSRange(location: 0, length: word.characters.count))
-            let partOneMatches = piglatinExp.matchesInString(word, options: [], range: NSRange(location: 0, length: word.characters.count))
-            
-            var capital = false
-            
-            if capitalMatches.count > 0 {
-                capital = true
-            }
-            
-            let one = getRegexGroup(word, match: partOneMatches[0], index: 1)
-            let two = getRegexGroup(word, match: partOneMatches[0], index: 2)
-            let three = getRegexGroup(word, match: partOneMatches[0], index: 3)
-            
-            var piglatinWord = (three + two + one + "ay").lowercaseString
-            
-            if capital {
-                piglatinWord.replaceRange(piglatinWord.startIndex...piglatinWord.startIndex, with: String(piglatinWord[piglatinWord.startIndex]).capitalizedString)
-            }
-            
-            result += " \(piglatinWord)"
-        }
-        
-        return result;
-        */
-        
         return result.joinWithSeparator("")
     }
 

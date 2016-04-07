@@ -8,7 +8,7 @@
 import Foundation
 
 class PiglatinTranslator: Translator {
-    let piglatinExp = try! NSRegularExpression(pattern: "([aieou]*)([^aieou]*)(\\w*)", options: [])
+    let piglatinExp = try! NSRegularExpression(pattern: "([aieou]*)([^aieou]*)(\\w*)", options: .CaseInsensitive)
     
     func translate(text: String) -> String {
         let match = piglatinExp.matchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count))[0]
